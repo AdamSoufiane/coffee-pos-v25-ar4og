@@ -3,17 +3,21 @@ package ai.shreds.application;
 
 import ai.shreds.domain.DomainCategoryService;
 import ai.shreds.shared.SharedCategoryDTO;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Service implementation for updating a category.
  */
 @Service
-@RequiredArgsConstructor
 public class ApplicationUpdateCategoryService implements ApplicationUpdateCategoryInputPort {
 
     private final DomainCategoryService categoryService;
+
+    @Autowired
+    public ApplicationUpdateCategoryService(DomainCategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     /**
      * Updates an existing category.
@@ -40,7 +44,7 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
         if (id == null || id.isEmpty()) {
             throw new IllegalArgumentException("Category ID cannot be null or empty");
         }
-        if (name == null || name.isEmpty()) {
+        if (name == null || name isEmpty()) {
             throw new IllegalArgumentException("Category name cannot be null or empty");
         }
         if (description != null && description.length() > 500) {

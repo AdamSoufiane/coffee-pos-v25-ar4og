@@ -2,36 +2,36 @@
 package ai.shreds.domain;
 
 import ai.shreds.shared.SharedCategoryDTO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * Interface for Category Repository operations.
+ * Entity class representing a Category in the domain layer.
  */
-public interface DomainCategoryRepositoryPort {
-    /**
-     * Saves a category entity to the database.
-     * @param category the category entity to save
-     */
-    void save(DomainCategoryEntity category);
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "categories")
+public class DomainCategoryEntity {
+    @Id
+    private String id;
+
+    @NotBlank(message = "Name is mandatory")
+    private String name;
+
+    @Size(max = 500, message = "Description must not exceed 500 characters")
+    private String description;
 
     /**
-     * Finds a category entity by its unique identifier.
-     * @param id the unique identifier of the category
-     * @return the found category entity or null if not found
+     * Converts this entity to a SharedCategoryDTO.
+     * @return a SharedCategoryDTO representation of this entity.
      */
-    DomainCategoryEntity findById(String id);
-
-    /**
-     * Deletes a category entity by its unique identifier.
-     * @param id the unique identifier of the category
-     */
-    void deleteById(String id);
-
-    /**
-     * Checks if a category entity exists by its unique identifier.
-     * @param id the unique identifier of the category
-     * @return true if the category exists, false otherwise
-     */
-    boolean existsById(String id);
+    public SharedCategoryDTO toSharedCategoryDTO() {
+        return new SharedCategoryDTO(id, name, description);
+    }
 }

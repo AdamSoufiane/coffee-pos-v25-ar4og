@@ -3,8 +3,6 @@ package ai.shreds.domain;
 
 import ai.shreds.shared.SharedCategoryDTO;
 import ai.shreds.shared.SharedDeleteCategoryResponse;
-import ai.shreds.domain.DomainCategoryRepositoryPort;
-import ai.shreds.domain.DomainCategoryEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.Data;
@@ -20,7 +18,6 @@ import org.slf4j.LoggerFactory;
 public class DomainCategoryService {
 
     private static final Logger logger = LoggerFactory.getLogger(DomainCategoryService.class);
-
     @Autowired
     private DomainCategoryRepositoryPort categoryRepository;
 
@@ -34,7 +31,7 @@ public class DomainCategoryService {
     }
 
     public boolean checkCategoryExists(String id) {
-        return categoryRepository != null && categoryRepository.existsById(id);
+        return categoryRepository.existsById(id);
     }
 
     public SharedCategoryDTO handleCategoryCreation(String name, String description) {

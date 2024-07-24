@@ -20,7 +20,7 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
     public SharedCategoryDTO updateCategory(String id, String name, String description) {
         try {
             // Validate input data
-            validateInputData(id, name, description);
+            validateInputData(name, description);
             categoryService.validateCategoryData(name, description);
             // Check if the category exists
             boolean exists = categoryService.checkCategoryExists(id);
@@ -32,19 +32,13 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
         } catch (CategoryNotFoundException e) {
             logger.error("Category with id {} not found", id, e);
             throw e;
-        } catch (InvalidInputException e) {
-            logger.error("Invalid input for category with id {}", id, e);
-            throw e;
         } catch (Exception e) {
             logger.error("Error updating category with id {}", id, e);
             throw new RuntimeException("Error updating category", e);
         }
     }
 
-    private void validateInputData(String id, String name, String description) {
-        if (id == null || id.isEmpty()) {
-            throw new InvalidInputException("Category ID is required");
-        }
+    private void validateInputData(String name, String description) {
         if (name == null || name.isEmpty()) {
             throw new InvalidInputException("Category name is required");
         }
