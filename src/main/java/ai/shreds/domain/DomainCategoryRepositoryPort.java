@@ -2,10 +2,8 @@
 package ai.shreds.domain;
 
 import ai.shreds.shared.SharedCategoryDTO;
-import ai.shreds.domain.DomainCategoryEntity;
-import org.springframework.stereotype.Repository;
-import java.util.HashMap;
-import java.util.Map;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * Interface for Category Repository operations.
@@ -36,33 +34,4 @@ public interface DomainCategoryRepositoryPort {
      * @return true if the category exists, false otherwise
      */
     boolean existsById(String id);
-}
-
-/**
- * Implementation of the DomainCategoryRepositoryPort interface.
- */
-@Repository
-public class DomainCategoryRepository implements DomainCategoryRepositoryPort {
-
-    private final Map<String, DomainCategoryEntity> database = new HashMap<>();
-
-    @Override
-    public void save(DomainCategoryEntity category) {
-        database.put(category.getId(), category);
-    }
-
-    @Override
-    public DomainCategoryEntity findById(String id) {
-        return database.get(id);
-    }
-
-    @Override
-    public void deleteById(String id) {
-        database.remove(id);
-    }
-
-    @Override
-    public boolean existsById(String id) {
-        return database.containsKey(id);
-    }
 }

@@ -5,6 +5,8 @@ import ai.shreds.domain.DomainCategoryService;
 import ai.shreds.shared.SharedCategoryDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * Service implementation for creating categories.
@@ -22,7 +24,7 @@ public class ApplicationCreateCategoryService implements ApplicationCreateCatego
      * @return The created category as a SharedCategoryDTO.
      */
     @Override
-    public SharedCategoryDTO createCategory(String name, String description) {
+    public SharedCategoryDTO createCategory(@NotBlank @Size(max = 100) String name, @Size(max = 500) String description) {
         // Ensure that validation logic is present in the DomainCategoryService's handleCategoryCreation method.
         return categoryService.handleCategoryCreation(name, description);
     }

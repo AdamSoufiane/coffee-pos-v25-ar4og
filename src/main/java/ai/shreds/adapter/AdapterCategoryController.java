@@ -5,6 +5,7 @@ import ai.shreds.shared.SharedCreateCategoryRequest;
 import ai.shreds.shared.SharedCreateCategoryResponse;
 import ai.shreds.shared.SharedUpdateCategoryRequest;
 import ai.shreds.shared.SharedUpdateCategoryResponse;
+import ai.shreds.shared.SharedDeleteCategoryRequest;
 import ai.shreds.shared.SharedDeleteCategoryResponse;
 import ai.shreds.application.ApplicationCreateCategoryInputPort;
 import ai.shreds.application.ApplicationUpdateCategoryInputPort;

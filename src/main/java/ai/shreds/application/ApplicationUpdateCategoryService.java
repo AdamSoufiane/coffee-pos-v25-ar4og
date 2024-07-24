@@ -3,8 +3,6 @@ package ai.shreds.application;
 
 import ai.shreds.domain.DomainCategoryService;
 import ai.shreds.shared.SharedCategoryDTO;
-import ai.shreds.shared.SharedUpdateCategoryRequest;
-import ai.shreds.shared.SharedUpdateCategoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -22,7 +20,7 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
     public SharedCategoryDTO updateCategory(String id, String name, String description) {
         try {
             // Validate input data
-            validateInputData(name, description);
+            validateInputData(id, name, description);
             categoryService.validateCategoryData(name, description);
             // Check if the category exists
             boolean exists = categoryService.checkCategoryExists(id);
@@ -34,13 +32,19 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
         } catch (CategoryNotFoundException e) {
             logger.error("Category with id {} not found", id, e);
             throw e;
+        } catch (InvalidInputException e) {
+            logger.error("Invalid input for category with id {}", id, e);
+            throw e;
         } catch (Exception e) {
             logger.error("Error updating category with id {}", id, e);
             throw new RuntimeException("Error updating category", e);
         }
     }
 
-    private void validateInputData(String name, String description) {
+    private void validateInputData(String id, String name, String description) {
+        if (id == null || id.isEmpty()) {
+            throw new InvalidInputException("Category ID is required");
+        }
         if (name == null || name.isEmpty()) {
             throw new InvalidInputException("Category name is required");
         }
@@ -50,14 +54,14 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
     }
 }
 
-class CategoryNotFoundException extends RuntimeException {
-    public CategoryNotFoundException(String message) {
+class InvalidInputException extends RuntimeException {
+    public InvalidInputException(String message) {
         super(message);
     }
 }
 
-class InvalidInputException extends RuntimeException {
-    public InvalidInputException(String message) {
+class CategoryNotFoundException extends RuntimeException {
+    public CategoryNotFoundException(String message) {
         super(message);
     }
 }

@@ -3,6 +3,8 @@ package ai.shreds.domain;
 
 import ai.shreds.shared.SharedCategoryDTO;
 import ai.shreds.shared.SharedDeleteCategoryResponse;
+import ai.shreds.domain.DomainCategoryRepositoryPort;
+import ai.shreds.domain.DomainCategoryEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.Data;
@@ -32,7 +34,7 @@ public class DomainCategoryService {
     }
 
     public boolean checkCategoryExists(String id) {
-        return categoryRepository.existsById(id);
+        return categoryRepository != null && categoryRepository.existsById(id);
     }
 
     public SharedCategoryDTO handleCategoryCreation(String name, String description) {
@@ -50,7 +52,7 @@ public class DomainCategoryService {
             throw new IllegalArgumentException("Category not found");
         }
         validateCategoryData(name, description);
-        DomainCategoryEntity category = categoryRepository.findById(id).orElse(null);
+        DomainCategoryEntity category = categoryRepository.findById(id);
         if (category == null) {
             throw new IllegalArgumentException("Category not found");
         }

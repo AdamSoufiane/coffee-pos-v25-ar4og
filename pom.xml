@@ -14,9 +14,8 @@
     <groupId>com.example</groupId>
     <artifactId>category-management</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>category-management</name>
-    <description>Maven POM file for a Spring Boot project implementing Hexagonal Architecture.</description>
-
+    <name>Category Management</name>
+    <description>Maven POM file for a Spring Boot project following Hexagonal Architecture principles.</description>
     <properties>
         <java.version>11</java.version>
         <spring-boot.version>2.5.4</spring-boot.version>
@@ -67,18 +66,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok-maven-plugin</artifactId>
-                <version>1.18.20</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>delombok</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
