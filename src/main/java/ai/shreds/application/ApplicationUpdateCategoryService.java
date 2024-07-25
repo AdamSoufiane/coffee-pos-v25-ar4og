@@ -2,11 +2,11 @@ package ai.shreds.application;
 
 import ai.shreds.domain.DomainCategoryService;
 import ai.shreds.shared.SharedCategoryDTO;
-import ai.shreds.shared.InvalidInputException;
-import ai.shreds.shared.CategoryNotFoundException;
-import org.springframework.stereotype.Service;
+import ai.shreds.shared.exceptions.CategoryNotFoundException;
+import ai.shreds.shared.exceptions.InvalidInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -31,6 +31,9 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
             return categoryService.handleCategoryUpdate(id, name, description);
         } catch (CategoryNotFoundException e) {
             logger.error("Category with id {} not found", id, e);
+            throw e;
+        } catch (InvalidInputException e) {
+            logger.error("Invalid input for category with id {}", id, e);
             throw e;
         } catch (Exception e) {
             logger.error("Error updating category with id {}", id, e);

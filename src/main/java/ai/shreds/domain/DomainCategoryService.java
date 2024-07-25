@@ -6,15 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.NotEmpty;
 import java.util.Optional;
 
 @Service
 public class DomainCategoryService {
 
     private static final Logger logger = LoggerFactory.getLogger(DomainCategoryService.class);
-
     private final DomainCategoryRepositoryPort categoryRepository;
 
     @Autowired
@@ -22,7 +19,7 @@ public class DomainCategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public void validateCategoryData(@NotEmpty String name, @Size(max = 500) String description) {
+    public void validateCategoryData(String name, String description) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Category name must not be empty");
         }
@@ -46,15 +43,9 @@ public class DomainCategoryService {
     }
 
     public SharedCategoryDTO handleCategoryUpdate(String id, String name, String description) {
-        if (!checkCategoryExists(id)) {
-            throw new IllegalArgumentException("Category not found");
-        }
         validateCategoryData(name, description);
-        Optional<DomainCategoryEntity> categoryOpt = categoryRepository.findById(id);
-        if (!categoryOpt.isPresent()) {
-            throw new IllegalArgumentException("Category not found");
-        }
-        DomainCategoryEntity category = categoryOpt.get();
+        Optional<DomainCategoryEntity> optionalCategory = categoryRepository.findById(id);
+        DomainCategoryEntity category = optionalCategory.orElseThrow(() -> new IllegalArgumentException("Category not found"));
         category.setName(name);
         category.setDescription(description);
         categoryRepository.save(category);
@@ -63,7 +54,8 @@ public class DomainCategoryService {
     }
 
     public SharedDeleteCategoryResponse handleCategoryDeletion(String id) {
-        if (!checkCategoryExists(id)) {
+        Optional<DomainCategoryEntity> categoryOptional = categoryRepository.findById(id);
+        if (!categoryOptional.isPresent()) {
             throw new IllegalArgumentException("Category not found");
         }
         categoryRepository.deleteById(id);

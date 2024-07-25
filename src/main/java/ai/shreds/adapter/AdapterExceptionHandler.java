@@ -1,4 +1,4 @@
-package adapter;
+package ai.shreds.adapter;
 
 import ai.shreds.shared.SharedErrorResponse;
 import ai.shreds.domain.exceptions.InvalidInputException;
