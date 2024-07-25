@@ -1,15 +1,14 @@
+package adapter;
 
-package ai.shreds.adapter;
-
-import ai.shreds.shared.SharedCreateCategoryRequest;
-import ai.shreds.shared.SharedCreateCategoryResponse;
-import ai.shreds.shared.SharedUpdateCategoryRequest;
-import ai.shreds.shared.SharedUpdateCategoryResponse;
-import ai.shreds.shared.SharedDeleteCategoryRequest;
-import ai.shreds.shared.SharedDeleteCategoryResponse;
-import ai.shreds.application.ApplicationCreateCategoryInputPort;
-import ai.shreds.application.ApplicationUpdateCategoryInputPort;
-import ai.shreds.application.ApplicationDeleteCategoryInputPort;
+import shared.SharedCreateCategoryRequest;
+import shared.SharedCreateCategoryResponse;
+import shared.SharedUpdateCategoryRequest;
+import shared.SharedUpdateCategoryResponse;
+import shared.SharedDeleteCategoryRequest;
+import shared.SharedDeleteCategoryResponse;
+import application.ApplicationCreateCategoryInputPort;
+import application.ApplicationUpdateCategoryInputPort;
+import application.ApplicationDeleteCategoryInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
@@ -40,13 +39,17 @@ public class AdapterCategoryController {
         validateCategoryData(request.getName(), request.getDescription());
         try {
             log.info("Creating category with name: {}", request.getName());
-            return createCategoryService.createCategory(request.getName(), request.getDescription());
+            return new SharedCreateCategoryResponse(
+                createCategoryService.createCategory(request.getName(), request.getDescription()).getId(),
+                request.getName(),
+                request.getDescription()
+            );
         } catch (IllegalArgumentException e) {
             log.error("Invalid input data: ", e);
-            throw new RuntimeException("Invalid input data.");
+            throw new InvalidInputException("Invalid input data.");
         } catch (Exception e) {
             log.error("Error creating category: ", e);
-            throw new RuntimeException("Internal server error.");
+            throw new ServerErrorException("Internal server error.");
         }
     }
 
@@ -55,13 +58,17 @@ public class AdapterCategoryController {
         validateCategoryData(request.getName(), request.getDescription());
         try {
             log.info("Updating category with id: {}", id);
-            return updateCategoryService.updateCategory(id, request.getName(), request.getDescription());
+            return new SharedUpdateCategoryResponse(
+                updateCategoryService.updateCategory(id, request.getName(), request.getDescription()).getId(),
+                request.getName(),
+                request.getDescription()
+            );
         } catch (IllegalArgumentException e) {
             log.error("Invalid input data: ", e);
-            throw new RuntimeException("Invalid input data.");
+            throw new InvalidInputException("Invalid input data.");
         } catch (Exception e) {
             log.error("Error updating category: ", e);
-            throw new RuntimeException("Internal server error.");
+            throw new ServerErrorException("Internal server error.");
         }
     }
 
@@ -72,10 +79,10 @@ public class AdapterCategoryController {
             return deleteCategoryService.deleteCategory(id);
         } catch (IllegalArgumentException e) {
             log.error("Invalid input data: ", e);
-            throw new RuntimeException("Invalid input data.");
+            throw new InvalidInputException("Invalid input data.");
         } catch (Exception e) {
             log.error("Error deleting category: ", e);
-            throw new RuntimeException("Internal server error.");
+            throw new ServerErrorException("Internal server error.");
         }
     }
 

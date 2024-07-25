@@ -1,4 +1,3 @@
-
 package ai.shreds.application;
 
 import ai.shreds.shared.SharedCategoryDTO;

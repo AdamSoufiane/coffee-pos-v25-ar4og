@@ -1,4 +1,3 @@
-
 package ai.shreds.shared;
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,3 @@
-
 package ai.shreds.domain;
 
 import ai.shreds.shared.SharedCategoryDTO;

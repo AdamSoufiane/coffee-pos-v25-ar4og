@@ -1,4 +1,3 @@
-
 package ai.shreds.shared;
 
 import lombok.AllArgsConstructor;
@@ -27,5 +26,3 @@ public class SharedUpdateCategoryResponse {
      */
     private String description;
 }
-
-// Note: This class adheres to the DTO (Data Transfer Object) Pattern as per the shred specifications.

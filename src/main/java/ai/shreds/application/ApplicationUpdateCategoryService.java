@@ -1,9 +1,9 @@
-
 package ai.shreds.application;
 
 import ai.shreds.domain.DomainCategoryService;
 import ai.shreds.shared.SharedCategoryDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import ai.shreds.shared.InvalidInputException;
+import ai.shreds.shared.CategoryNotFoundException;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,17 +45,5 @@ public class ApplicationUpdateCategoryService implements ApplicationUpdateCatego
         if (description != null && description.length() > 500) {
             throw new InvalidInputException("Category description must not exceed 500 characters");
         }
-    }
-}
-
-class InvalidInputException extends RuntimeException {
-    public InvalidInputException(String message) {
-        super(message);
-    }
-}
-
-class CategoryNotFoundException extends RuntimeException {
-    public CategoryNotFoundException(String message) {
-        super(message);
     }
 }

@@ -1,8 +1,8 @@
-
 package ai.shreds.infrastructure;
 
 import ai.shreds.domain.DomainCategoryEntity;
 import ai.shreds.domain.DomainCategoryRepositoryPort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class InfrastructureCategoryRepositoryImpl implements DomainCategoryRepositoryPort {
 
-    private final MongoCategoryRepository mongoCategoryRepository;
+    @Autowired
+    private MongoCategoryRepository mongoCategoryRepository;
 
     /**
      * Saves a category to the MongoDB database.
