@@ -1,10 +1,10 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedCreateCategoryRequestParams;
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
-import ai.shreds.shared.SharedUpdateCategoryRequestParams;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
+import ai.shreds.Shared.SharedCreateCategoryRequestParams;
+import ai.shreds.Shared.SharedCreateCategoryResponseDTO;
+import ai.shreds.Shared.SharedUpdateCategoryRequestParams;
+import ai.shreds.Shared.SharedUpdateCategoryResponseDTO;
+import ai.shreds.Shared.SharedDeleteCategoryResponseDTO;
 import ai.shreds.shared.CategoryNotFoundException;
 
 /**

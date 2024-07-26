@@ -1,20 +1,15 @@
-package ai.shreds.application;
+package ai.shreds.Application;
 
-import ai.shreds.application.ApplicationCreateCategoryInputPort;
 import ai.shreds.application.ApplicationUpdateCategoryInputPort;
-import ai.shreds.application.ApplicationDeleteCategoryInputPort;
-import ai.shreds.shared.SharedCreateCategoryRequestParams;
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
-import ai.shreds.shared.SharedUpdateCategoryRequestParams;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
-import ai.shreds.domain.DomainCategoryServicePort;
-import ai.shreds.domain.DomainCategoryEntity;
+import ai.shreds.Shared.SharedCreateCategoryRequestParams;
+import ai.shreds.Shared.SharedCreateCategoryResponseDTO;
+import ai.shreds.Shared.SharedUpdateCategoryRequestParams;
+import ai.shreds.Shared.SharedUpdateCategoryResponseDTO;
+import ai.shreds.Shared.SharedDeleteCategoryResponseDTO;
+import ai.shreds.Domain.DomainCategoryServicePort;
+import ai.shreds.Domain.DomainCategoryEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.bson.types.ObjectId;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Service
 @RequiredArgsConstructor

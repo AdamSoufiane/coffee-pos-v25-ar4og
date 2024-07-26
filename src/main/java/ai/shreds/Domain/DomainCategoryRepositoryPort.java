@@ -1,4 +1,4 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
 import org.bson.types.ObjectId;
 

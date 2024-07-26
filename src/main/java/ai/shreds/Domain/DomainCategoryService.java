@@ -1,11 +1,10 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedCreateCategoryRequestParams;
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
-import ai.shreds.shared.SharedUpdateCategoryRequestParams;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
-import org.bson.types.ObjectId;
+import ai.shreds.Shared.SharedCreateCategoryRequestParams;
+import ai.shreds.Shared.SharedCreateCategoryResponseDTO;
+import ai.shreds.Shared.SharedUpdateCategoryRequestParams;
+import ai.shreds.Shared.SharedUpdateCategoryResponseDTO;
+import ai.shreds.Shared.SharedDeleteCategoryResponseDTO;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.Objects;

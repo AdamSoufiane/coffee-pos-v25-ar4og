@@ -1,7 +1,7 @@
-package ai.shreds.application.port.in;
+package ai.shreds.Application;
 
-import ai.shreds.shared.SharedUpdateCategoryRequestParams;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
+import ai.shreds.Shared.SharedUpdateCategoryRequestParams;
+import ai.shreds.Shared.SharedUpdateCategoryResponseDTO;
 import javax.validation.constraints.NotNull;
 
 /**

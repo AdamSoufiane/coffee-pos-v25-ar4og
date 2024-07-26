@@ -1,24 +1,18 @@
-package ai.shreds.adapter;
+package ai.shreds.Adapter;
 
-import ai.shreds.shared.SharedCreateCategoryRequestParams;
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
-import ai.shreds.shared.SharedUpdateCategoryRequestParams;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
-import ai.shreds.application.ApplicationCreateCategoryInputPort;
-import ai.shreds.application.ApplicationUpdateCategoryInputPort;
-import ai.shreds.application.ApplicationDeleteCategoryInputPort;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import ai.shreds.Application.ApplicationCreateCategoryInputPort;
+import ai.shreds.Application.ApplicationDeleteCategoryInputPort;
+import ai.shreds.Application.ApplicationUpdateCategoryInputPort;
+import ai.shreds.Shared.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
-import lombok.RequiredArgsConstructor;
 import java.util.NoSuchElementException;
 
 @RestController

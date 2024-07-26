@@ -1,7 +1,7 @@
-package ai.shreds.application;
+package ai.shreds.Application;
 
-import ai.shreds.shared.SharedCreateCategoryRequestParams;
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
+import ai.shreds.Shared.SharedCreateCategoryRequestParams;
+import ai.shreds.Shared.SharedCreateCategoryResponseDTO;
 
 /**
  * Interface for creating a new category.

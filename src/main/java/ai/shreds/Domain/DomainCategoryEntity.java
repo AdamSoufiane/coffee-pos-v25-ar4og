@@ -1,8 +1,8 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedCreateCategoryResponseDTO;
-import ai.shreds.shared.SharedUpdateCategoryResponseDTO;
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
+import ai.shreds.Shared.SharedCreateCategoryResponseDTO;
+import ai.shreds.Shared.SharedUpdateCategoryResponseDTO;
+import ai.shreds.Shared.SharedDeleteCategoryResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

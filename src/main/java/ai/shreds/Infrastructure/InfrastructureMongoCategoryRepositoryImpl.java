@@ -1,14 +1,13 @@
-package ai.shreds.infrastructure;
+package ai.shreds.Infrastructure;
 
 import ai.shreds.domain.CategoryAlreadyExistsException;
-import ai.shreds.domain.DomainCategoryEntity;
-import ai.shreds.domain.DomainCategoryRepositoryPort;
+import ai.shreds.Domain.DomainCategoryEntity;
+import ai.shreds.Domain.DomainCategoryRepositoryPort;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import lombok.RequiredArgsConstructor;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
-package ai.shreds.application;
+package ai.shreds.Application;
 
-import ai.shreds.shared.SharedDeleteCategoryResponseDTO;
+import ai.shreds.Shared.SharedDeleteCategoryResponseDTO;
 
 /**
  * ApplicationDeleteCategoryInputPort defines the contract for deleting a category within the application layer.
