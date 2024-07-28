@@ -1,9 +1,9 @@
-package ai.shreds.application;
+package ai.shreds.Application;
 
-import ai.shreds.shared.SharedCreateProductRequest;
-import ai.shreds.shared.SharedProductDTO;
-import ai.shreds.shared.SharedUpdateProductRequest;
-import ai.shreds.shared.SharedListProductsParams;
+import ai.shreds.Shared.SharedCreateProductRequest;
+import ai.shreds.Shared.SharedProductDTO;
+import ai.shreds.Shared.SharedUpdateProductRequest;
+import ai.shreds.Shared.SharedListProductsParams;
 import java.util.List;
 
 /**

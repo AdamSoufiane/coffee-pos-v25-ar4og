@@ -1,4 +1,4 @@
-package adapters.primary;
+package ai.shreds.Adapter;
 
 import com.example.adapters.primary.AdapterExceptionHandler;
 import com.example.application.ApplicationProductServicePort;

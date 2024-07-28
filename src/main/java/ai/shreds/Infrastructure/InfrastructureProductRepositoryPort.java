@@ -1,7 +1,7 @@
-package ai.shreds.infrastructure;
+package ai.shreds.Infrastructure;
 
-import ai.shreds.domain.DomainProductEntity;
-import ai.shreds.shared.SharedListProductsParams;
+import ai.shreds.Domain.DomainProductEntity;
+import ai.shreds.Shared.SharedListProductsParams;
 import java.util.List;
 
 /**

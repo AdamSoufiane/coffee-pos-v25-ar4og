@@ -1,6 +1,6 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedProductDTO;
+import ai.shreds.Shared.SharedProductDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

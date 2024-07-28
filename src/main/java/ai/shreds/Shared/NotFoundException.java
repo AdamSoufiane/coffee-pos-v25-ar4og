@@ -1,4 +1,4 @@
-package ai.shreds.shared.exceptions; 
+package ai.shreds.Shared;
  
  public class NotFoundException extends RuntimeException { 
  public NotFoundException(String message) { 

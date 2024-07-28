@@ -1,14 +1,14 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedCreateProductRequest;
-import ai.shreds.shared.SharedListProductsParams;
-import ai.shreds.shared.SharedUpdateProductRequest;
-import ai.shreds.shared.exceptions.BadRequestException;
-import ai.shreds.shared.exceptions.NotFoundException;
+import ai.shreds.Shared.SharedCreateProductRequest;
+import ai.shreds.Shared.SharedListProductsParams;
+import ai.shreds.Shared.SharedUpdateProductRequest;
+import ai.shreds.Shared.BadRequestException;
+import ai.shreds.Shared.NotFoundException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
-import ai.shreds.infrastructure.InfrastructureProductRepositoryPort;
+import ai.shreds.Infrastructure.InfrastructureProductRepositoryPort;
 
 @Service
 @RequiredArgsConstructor

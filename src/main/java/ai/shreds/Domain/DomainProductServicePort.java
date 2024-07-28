@@ -1,8 +1,8 @@
-package ai.shreds.domain;
+package ai.shreds.Domain;
 
-import ai.shreds.shared.SharedCreateProductRequest;
-import ai.shreds.shared.SharedListProductsParams;
-import ai.shreds.shared.SharedUpdateProductRequest;
+import ai.shreds.Shared.SharedCreateProductRequest;
+import ai.shreds.Shared.SharedListProductsParams;
+import ai.shreds.Shared.SharedUpdateProductRequest;
 import java.util.List;
 
 /**

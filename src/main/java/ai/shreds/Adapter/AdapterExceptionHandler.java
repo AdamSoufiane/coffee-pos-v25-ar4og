@@ -1,4 +1,4 @@
-package adapters.primary;
+package ai.shreds.Adapter;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,7 @@
-package ai.shreds.infrastructure;
+package ai.shreds.Infrastructure;
 
-import ai.shreds.domain.DomainProductEntity;
-import ai.shreds.shared.SharedListProductsParams;
+import ai.shreds.Domain.DomainProductEntity;
+import ai.shreds.Shared.SharedListProductsParams;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import java.util.List;
 import javax.validation.constraints.NotNull;
-import ai.shreds.infrastructure.InfrastructureProductRepositoryPort;
 
 @Repository
 @Validated

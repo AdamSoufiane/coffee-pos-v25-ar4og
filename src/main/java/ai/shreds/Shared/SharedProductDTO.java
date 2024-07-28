@@ -1,9 +1,9 @@
-package ai.shreds.shared;
+package ai.shreds.Shared;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ai.shreds.domain.DomainProductEntity;
+import ai.shreds.Domain.DomainProductEntity;
 import javax.validation.constraints.Size;
 
 /**
