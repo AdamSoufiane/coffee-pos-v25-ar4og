@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -36,19 +37,12 @@ public class DomainProductEntity {
     }
 
     public SharedProductDTO toDTO() {
-        return SharedProductDTO.builder()
-                .id(this.id)
-                .name(this.name)
-                .description(this.description)
-                .categoryId(this.categoryId)
-                .price(this.price)
-                .stock(this.stock)
-                .build();
+        return SharedProductDTO.fromEntity(this);
     }
 
-    public static DomainProductEntity fromRequest(SharedCreateProductRequest request) {
+    public static DomainProductEntity fromCreateRequest(SharedCreateProductRequest request) {
         return DomainProductEntity.builder()
-                .id(null) // ID will be generated or assigned later
+                .id(UUID.randomUUID().toString()) // Generate a new UUID for the product
                 .name(request.getName())
                 .description(request.getDescription())
                 .categoryId(request.getCategoryId())
@@ -66,6 +60,14 @@ public class DomainProductEntity {
                 .price(request.getPrice())
                 .stock(request.getStock())
                 .build();
+    }
+
+    public void updateFromRequest(SharedUpdateProductRequest request) {
+        this.name = request.getName();
+        this.description = request.getDescription();
+        this.categoryId = request.getCategoryId();
+        this.price = request.getPrice();
+        this.stock = request.getStock();
     }
 
     public void validateProductData() {

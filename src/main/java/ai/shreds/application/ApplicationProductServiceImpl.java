@@ -39,7 +39,7 @@ public class ApplicationProductServiceImpl implements ApplicationProductServiceP
     public SharedProductDTO createProductDetails(SharedCreateProductRequest request) {
         validateProductData(request);
         log.info("Creating product with name: {}", request.getName());
-        DomainProductEntity productEntity = DomainProductEntity.fromRequest(request);
+        DomainProductEntity productEntity = DomainProductEntity.fromCreateRequest(request);
         productEntity = domainProductService.createProductDetails(productEntity);
         return productEntity.toDTO();
     }
