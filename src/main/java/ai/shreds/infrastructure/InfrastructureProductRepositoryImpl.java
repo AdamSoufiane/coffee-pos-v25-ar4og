@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Slf4j
@@ -18,12 +19,12 @@ public class InfrastructureProductRepositoryImpl implements DomainProductReposit
     }
 
     @Override
-    public DomainProductEntity findById(String id) {
+    public Optional<DomainProductEntity> findById(String id) {
         try {
-            return mongoRepository.findById(id).orElse(null);
+            return mongoRepository.findById(id);
         } catch (Exception e) {
             log.error("Error finding product by id: {}", id, e);
-            return null;
+            return Optional.empty();
         }
     }
 

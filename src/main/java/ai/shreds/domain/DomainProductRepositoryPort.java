@@ -1,6 +1,7 @@
 package ai.shreds.domain;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Interface for CRUD operations on the Product entity in the Catalog Database.
@@ -12,7 +13,7 @@ public interface DomainProductRepositoryPort {
      * @param id the unique identifier of the product
      * @return the product entity
      */
-    DomainProductEntity findById(String id);
+    Optional<DomainProductEntity> findById(String id);
 
     /**
      * Finds all products in the Catalog Database.
